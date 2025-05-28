@@ -4,10 +4,14 @@ from scrapy_selenium import SeleniumRequest
 class ScraperSpider(scrapy.Spider):
     name = "scraper"
     allowed_domains = ["www.yesstyle.com"]
+    # allowed_domains = ["www.stylevana.com"]
     start_urls = ["https://www.yesstyle.com/en/beauty-face-cleansers/list.html/bcc.15545_bpt.46#/s=10&l=1&bt=37&bpt=46&bcc=15545&sb=136&pn=1"]
+    # start_urls = ["https://www.stylevana.com/en_US/skincare/face-care/sunscreen.html"]
 
     def start_requests(self):
         url = "https://www.yesstyle.com/en/beauty-face-cleansers/list.html/bcc.15545_bpt.46#/s=10&l=1&bt=37&bpt=46&bcc=15545&sb=136&pn=1"
+        # url = "https://www.stylevana.com/en_US/skincare/face-care/sunscreen.html"
+
         yield SeleniumRequest(url=url, callback=self.parse)
 
     def parse(self, response):
@@ -31,19 +35,19 @@ class ScraperSpider(scrapy.Spider):
                 "price": price
             }
 
-        # getting pagination links
-        pagination_elements = response.css('span[data-ng-repeat="page in pagination.intermediatePages"] > a')
+        # # getting pagination links
+        # pagination_elements = response.css('span[data-ng-repeat="page in pagination.intermediatePages"] > a')
 
-        for page in pagination_elements:
-            href = page.attrib["href"]
-            yield SeleniumRequest(
-                url=response.urljoin(href),
-                callback=self.parse,
-                wait_time=3,              # let the JS render
-                wait_until=lambda d: d.find_element_by_css_selector("div.itemContainer")
-            )
+        # # for page in pagination_elements:
+        # #     href = page.attrib["href"]
+        # #     yield SeleniumRequest(
+        # #         url=response.urljoin(href),
+        # #         callback=self.parse,
+        # #         wait_time=3,              # let the JS render
+        # #         wait_until=lambda d: d.find_element_by_css_selector("div.itemContainer")
+        # #     )
 
         # for element in pagination_elements:
         #     link_url = element.attrib["href"]
-        # if link_url:
-        #     yield scrapy.Request(response.urljoin(link_url))
+        #     if link_url:
+        #         yield scrapy.Request(response.urljoin(link_url))
