@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = "yesstyle.spiders"
 #USER_AGENT = "yesstyle (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -90,12 +90,16 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_STORAGE = "scrapy.extensions.httpcache.FilesystemCacheStorage"
 
 # Set settings whose default value is deprecated to a future-proof value
+from selenium.webdriver.chrome.service import Service
+
+
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
 DOWNLOADER_MIDDLEWARES = {
     'scrapy_selenium.SeleniumMiddleware': 800,
 }
-SELENIUM_DRIVER_NAME = 'chrome'
-SELENIUM_DRIVER_EXECUTABLE_PATH = which('chromedriver')
-SELENIUM_DRIVER_ARGUMENTS = ['--headless=new']
+
+SELENIUM_DRIVER_NAME    = 'chrome'
+SELENIUM_DRIVER_SERVICE = Service('/path/to/chromedriver')
+SELENIUM_DRIVER_ARGUMENTS = ['--headless']
