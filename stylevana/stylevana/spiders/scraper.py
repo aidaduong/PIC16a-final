@@ -13,7 +13,6 @@ class ScraperSpider(scrapy.Spider):
     start_urls = ["https://www.stylevana.com/en_US/skincare/facial-cleanser/face-wash-cleansers.html"]
 
     def start_requests(self):
-        # base_url = "https://www.stylevana.com/en_US/skincare/face-care/sunscreen.html"
         base_url = self.start_urls[0]
         for page in range(1, 4):    
             url = f"{base_url}?p={page}"
