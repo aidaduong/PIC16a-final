@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h2>Search Results</h2>
+
+{% if results %}
+<ul>
+    {% for result in results %}
+    <li>
+        <a href="{{ url_for('product', product_type = result.product, name = result.name) }}">
+            {{ result.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% else %}
+<p>No results matched your search. Try a different keyword.</p>
+<p>
+    <a href="{{ url_for('home') }}">Return to home</a>
+<p>
+{% endif %}
+
+{% endblock %}

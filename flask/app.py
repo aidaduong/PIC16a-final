@@ -18,6 +18,10 @@ toner['product'] = 'toner'
 database = pd.concat([sunscreen, cleanser, essence, moisturizer, toner], ignore_index=True, axis = 0)
 
 # data cleaning
+database['sv_url'] = database['sv_url'].fillna('')
+database['ys_url'] = database['ys_url'].fillna('')
+database['az_url'] = database['az_url'].fillna('')
+
 database['price'] = database['price'].str.replace('$', '').astype(float)
 database['ys_num_reviews'] = database['ys_num_reviews'].fillna(0).astype(int)
 database['az_num_reviews'] = database['az_num_reviews'].fillna(0).astype(int)
@@ -71,8 +75,19 @@ def product(product_type, name):
 # results of the search
 @app.route('/results', methods=["GET","POST"])
 def results():
-	query = request.form.get("search")
-	pass
+	query = request.args.get("search")
+	query = query.lower().strip()
+
+	if not query:
+		return redirect(url_for('home'))
+	
+	names = database['name'].str.lower()
+	names = names.apply(lambda x: x.translate({ord(char): "" for char in "!@#$%^&*()[]{};:,./<>?\|`~-=_+"}))
+	matches = names.str.contains(query)
+	return render_template('results.html', results=database[matches].to_dict('records'))
+	
+
+	
 	
 if __name__ == '__main__':
 	app.run(debug=True)

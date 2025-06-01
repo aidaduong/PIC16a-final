@@ -22,17 +22,37 @@
           <th><strong>Number of Reviews</strong></th>
         </tr>
         <tr>
-          <td><a href="{{ product.sv_url }}"> Stylevana </a></td>
+          <td>
+            {% if product.sv_url %}
+              <a href="{{ product.sv_url }}"> Stylevana </a>
+            {% else %}
+              Stylevana
+            {% endif %}
+          <td>
           <td>{{ product.sv_star }} &#11088;</td>
           <td>{{ product.sv_num_reviews }}</td>
         </tr>
         <tr>
-            <td><a href="{{ product.ys_url }}"> Yesstyle </a></td>
-            <td>{{ product.ys_star }} &#11088;</td>
-            <td>{{ product.ys_num_reviews }}</td>
+          <td>
+            {% if product.ys_url %}
+              <a href="{{ product.ys_url }}"> Yesstyle </a>
+            {% else %}
+              Yesstyle
+            {% endif %}
+          <td>
+          <!-- <td><a href="{{ product.ys_url }}"> Yesstyle </a></td> -->
+          <td>{{ product.ys_star }} &#11088;</td>
+          <td>{{ product.ys_num_reviews }}</td>
         </tr>
         <tr>
-          <td><a href="{{ product.az_url }}"> Amazon </a></td>
+          <td>
+            {% if product.az_url %}
+              <a href="{{ product.az_url }}"> Amazon </a>
+            {% else %}
+              Amazon
+            {% endif %}
+          <td>
+          <!-- <td><a href="{{ product.az_url }}"> Amazon </a></td> -->
           <td>{{ product.az_star }} &#11088;</td>
           <td>{{ product.az_num_reviews }}</td>
         </tr>
