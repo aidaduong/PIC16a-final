@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h2>Moisturizers</h2>
+
+<ul>
+    {% for moisturizer in moisturizers %}
+    <li>
+        <a href="{{ url_for('product', product_type = moisturizer.product, name = moisturizer.name) }}">
+            {{ moisturizer.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

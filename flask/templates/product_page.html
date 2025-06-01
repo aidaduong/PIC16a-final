@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h2>{{ product.name }}</h2>
+
+<img src="{{ product.image }}" alt="Image of {{ product.name }}" style="width:300px;height:300px;">
+
+<p>
+    Product Type: {{ product.product.capitalize() }} <br>
+    Brand: {{ product.brand }}<br>
+    Price (Stylevana): ${{ product.price }}<br>
+</p>
+
+<p>
+    <h3>Ratings</h3>
+
+    <table>
+        <tr>
+          <th><strong>Website</strong></th>
+          <th><strong>Rating</strong></th>
+          <th><strong>Number of Reviews</strong></th>
+        </tr>
+        <tr>
+          <td><a href="{{ product.sv_url }}"> Stylevana </a></td>
+          <td>{{ product.sv_star }} &#11088;</td>
+          <td>{{ product.sv_num_reviews }}</td>
+        </tr>
+        <tr>
+            <td><a href="{{ product.ys_url }}"> Yesstyle </a></td>
+            <td>{{ product.ys_star }} &#11088;</td>
+            <td>{{ product.ys_num_reviews }}</td>
+        </tr>
+        <tr>
+          <td><a href="{{ product.az_url }}"> Amazon </a></td>
+          <td>{{ product.az_star }} &#11088;</td>
+          <td>{{ product.az_num_reviews }}</td>
+        </tr>
+      </table>
+
+{% endblock %}

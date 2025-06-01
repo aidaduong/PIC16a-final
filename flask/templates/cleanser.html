@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h2>Cleansers</h2>
+
+<ul>
+    {% for cleanser in cleansers %}
+    <li>
+        <a href="{{ url_for('product', product_type = cleanser.product, name = cleanser.name) }}">
+            {{ cleanser.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

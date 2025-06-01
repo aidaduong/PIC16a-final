@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h2>Product List</h2>
+<p>
+    Below is a list of all products in our database. You can click on a product to view its details.
+</p>
+<ul>
+    {% for product in products %}
+    <li>
+        <a href="{{ url_for('product', product_type = product.product, name = product.name) }}">
+            {{ product.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

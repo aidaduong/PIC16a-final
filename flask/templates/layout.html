@@ -8,10 +8,23 @@
 </head>
 
 <body>
+
     {% block body %}{% endblock %}
     <header>
-        <h1>skinFinds</h1>
+        <center><h1>skinFinds</h1></center>
     </header>
+    
+    {% block nav %}
+        <a href="/">Home</a></li>
+        <a href="/product_list">Product List</a></li>
+        <a href="/cleanser">Cleansers</a></li>
+        <a href="/moisturizer">Moisturizers</a></li>
+        <a href="/essence">Essences</a></li>
+        <a href="/toner">Toners</a></li>
+        <a href="/sunscreen">Sunscreens</a></li>
+
+    {% endblock %}
+
 
     <main>
         {% block main %} {% endblock %}

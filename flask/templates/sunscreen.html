@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h2>Sunscreens</h2>
+
+<ul>
+    {% for sun in sunscreens %}
+    <li>
+        <a href="{{ url_for('product', product_type = sun.product, name = sun.name) }}">
+            {{ sun.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

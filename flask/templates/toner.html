@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h2>Toners</h2>
+
+<ul>
+    {% for toner in toners %}
+    <li>
+        <a href="{{ url_for('product', product_type = toner.product, name = toner.name) }}">
+            {{ toner.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

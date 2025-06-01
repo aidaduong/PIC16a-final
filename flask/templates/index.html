@@ -2,20 +2,20 @@
 
 {% block main %}
 
-<h2>Welcome to skinFinds!</h2>
+<center><h2>making your skincare shopping easier</h2></center>
+
 <p>
+    <center>
     skinFinds is a skincare website that allows you to search for skincare products
-    and look at ratings and reviews for them.
+    and look at ratings for them.
+    </center>
 </p>
 
-<p>
-    Please search for a product below to get started. 
-    You can also view the <a href="/product_list">list of all products</a>.
-</p>
-
+<center>
 <form method = "GET" action="/results">
     <label for="search">Type in the name or brand of a product:</label>
     <input type="text" id="search" name="search" placeholder="Start typing...">
     <button type="submit">Search</button>
+</center>
 
 {% endblock %}

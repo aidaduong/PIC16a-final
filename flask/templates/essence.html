@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h2>Essence/Serums</h2>
+
+<ul>
+    {% for essence in essences %}
+    <li>
+        <a href="{{ url_for('product', product_type = essence.product, name = essence.name) }}">
+            {{ essence.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
