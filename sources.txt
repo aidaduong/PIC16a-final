@@ -1,0 +1,8 @@
+# Sources and Acknowledgments
+
+- I used this to understand how to create a scraper from Scrapy: https://www.zenrows.com/blog/scrapy-python#extract-data
+- The part of scraper.py where I went through each product on a page was based on this: https://www.zenrows.com/blog/scrapy-selenium#install
+- I also used this to understand how pagination works in Scrapy: https://www.zenrows.com/blog/scrapy-pagination#change-the-page-number-in-the-url
+- In product_page.html, I used this for syntax on how to create a table for the ratings: https://www.w3schools.com/html/html_tables.asp
+- I used this youtube tutorial for ideas on implementing a navigation menu bar in the Flask app: https://www.youtube.com/watch?v=jE2YZ6OgwxM 
+- Some code was suggested by ChatGPT-plus (30 May 2025) for "selenium EC pagination fix", "CSS selectors for products", "Flask search results display"

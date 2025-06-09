@@ -14,13 +14,17 @@ class ScraperSpider(scrapy.Spider):
 
     def start_requests(self):
         base_url = self.start_urls[0]
+
+        # pagination - iterate thru the first 3 pages
+        # the pagination is done by adding ?p=1, ?p=2, etc. to the URL
         for page in range(1, 4):    
             url = f"{base_url}?p={page}"
 
+            # yield a SeleniumRequest for each page (ChatGPT-plus 30 May 2025)
             yield SeleniumRequest(
                 url=url,
                 callback=self.parse,
-                wait_time=10,                                       # give it up to 10s
+                wait_time=10,                                       
                 wait_until=EC.presence_of_all_elements_located(
                     (By.CSS_SELECTOR, "li.product-item")
                 ),
@@ -36,6 +40,7 @@ class ScraperSpider(scrapy.Spider):
                 continue
             page_url = response.urljoin(url)
 
+            # yield a SeleniumRequest for each product page (ChatGPT-plus 30 May 2025)
             yield SeleniumRequest(url = page_url, 
                                   callback=self.parse_item,
                                   wait_time=10,
@@ -46,7 +51,11 @@ class ScraperSpider(scrapy.Spider):
                                   )
 
     def parse_item(self, response):
+
+        # get the CSS selectors for various information (ChatGPT-plus 30 May 2025)
+        # fill NA values with empty strings
         url = response.url
+
         image = response.css("div.fotorama__stage__shaft img.fotorama__img::attr(src)").get(default="").strip()
         name = response.css("h1.page-title .base::text").get(default="").strip()
         price = response.css("span.normal-price span.price::text").get(default="").strip()
@@ -62,7 +71,7 @@ class ScraperSpider(scrapy.Spider):
             "price" : price, 
             "brand" : brand,
             "star" : star,
-            "num_reviews" : num_reviews.split()[0] if num_reviews else "0"
+            "num_reviews" : num_reviews.split()[0] if num_reviews else "0" # get the first string from num_reviews, since it's like "25 reviews"
             }
 
         yield info 

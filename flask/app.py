@@ -48,6 +48,7 @@ def toner():
 # logic to decide which template file to call based on procuct type
 @app.route('/product/<product_type>/<name>')
 def product(product_type, name):
+	# select all rows of database where name matches the name parameter
 	product = database[database['name'] == name]
 	return render_template('product_page.html', product = product.to_dict('records')[0])
 
@@ -60,9 +61,16 @@ def results():
 	if not query:
 		return redirect(url_for('home'))
 	
+	# show the results of search in Flask (ChatGPT-plus 30 May 2025)
 	names = database['name'].str.lower()
+
+	# remove all special characters from the names
 	names = names.apply(lambda x: x.translate({ord(char): "" for char in "!@#$%^&*()[]{};:,./<>?\|`~-=_+"}))
+
+	# matches should contain all the product names that contain the query
 	matches = names.str.contains(query)
+
+	# pass all the rows in database that match the query
 	return render_template('results.html', results=database[matches].to_dict('records'))
 	
 

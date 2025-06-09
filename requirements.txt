@@ -1,0 +1,27 @@
+anaconda-anon-usage @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_3eler6mjxh/croot/anaconda-anon-usage_1710965076906/work
+anaconda-auth @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_9fjzogqops/croot/anaconda-cloud-auth-split_1742506709289/work
+anaconda-catalogs @ file:///home/conda/feedstock_root/build_artifacts/anaconda-catalogs_1689425663815/work
+anaconda-cli-base @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_08m4xcbj7q/croot/anaconda-cli-base_1741369478940/work
+anaconda-client @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_52pw426gad/croot/anaconda-client_1743199588333/work
+anaconda-navigator @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_058ksrht9i/croot/anaconda-navigator_1745265191339/work
+anaconda-project @ file:///home/conda/feedstock_root/build_artifacts/anaconda-project_1660066847501/work
+conda @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_527jk_262g/croot/conda_1736277825834/work
+conda-build @ file:///Users/runner/miniforge3/conda-bld/conda-build_1727204261938/work
+conda-content-trust @ file:///home/conda/feedstock_root/build_artifacts/conda-content-trust_1693490762241/work
+conda-libmamba-solver @ file:///croot/conda-libmamba-solver_1706733287605/work/src
+conda-pack @ file:///home/conda/feedstock_root/build_artifacts/conda-pack_1731874358732/work
+conda-package-handling @ file:///home/conda/feedstock_root/build_artifacts/conda-package-handling_1729006966809/work
+conda-repo-cli @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_f19ffcbhgt/croot/conda-repo-cli_1727366914573/work
+conda-token @ file:///croot/conda-token_1741722942912/work
+conda_index @ file:///home/conda/feedstock_root/build_artifacts/conda-index_1718383105992/work
+conda_package_streaming @ file:///home/conda/feedstock_root/build_artifacts/conda-package-streaming_1729004031731/work
+Flask @ file:///home/conda/feedstock_root/build_artifacts/flask_1731556349671/work
+Flask-Navigation==0.2.0
+Flask-Session @ file:///home/conda/feedstock_root/build_artifacts/flask-session_1733998205040/work
+itemadapter @ file:///tmp/build/80754af9/itemadapter_1626442940632/work
+Jinja2 @ file:///home/conda/feedstock_root/build_artifacts/jinja2_1715127149914/work
+numpy @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_a51i_mbs7m/croot/numpy_and_numpy_base_1708638620867/work/dist/numpy-1.26.4-cp311-cp311-macosx_11_0_arm64.whl#sha256=3d90dd3382cff7becb2384f73058a8e72b81c697e8bb77f1c69a82caca5b0c57
+pandas @ file:///Users/runner/miniforge3/conda-bld/pandas_1726878432242/work
+Scrapy @ file:///Users/runner/miniforge3/conda-bld/scrapy_1731935253529/work
+scrapy-selenium==0.0.7
+selenium==4.32.0
